@@ -95,7 +95,7 @@ reliable:
 ## 4. Detailed Implementation
 
 To build this Minimum Viable Product, we will create the following files in the
-`codemender-agent` repository. No other files should be necessary.
+`code-mender-demo` repository. No other files should be necessary.
 
 ### 1. `orchestrator.py`
 

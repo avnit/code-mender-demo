@@ -100,8 +100,8 @@ Ensure you have the following before starting:
 Clone the repository and navigate to the `terraform/gcp/` directory:
 
 ```bash
-git clone https://github.com/your-username/codemender-agent.git
-cd codemender-agent/terraform/gcp
+git clone https://github.com/avnit/code-mender-demo.git
+cd code-mender-demo/terraform/gcp
 ```
 
 #### Where to create `terraform.tfvars`:
@@ -164,7 +164,7 @@ build step (`cloudbuild.yaml`). No manual binary download or storage bucket uplo
 
 ### Step 3: Build, Push & Deploy Base Docker Container Image
 
-Return to the repository root directory (`codemender-agent/`) and build the
+Return to the repository root directory (`code-mender-demo/`) and build the
 runner container image using Cloud Build (which fetches the stable `cm` binary,
 pushes the container to Artifact Registry, and updates the Cloud Run Jobs):
 
@@ -479,7 +479,7 @@ Navigate to your `terraform/gcp` directory and create a new workspace for your
 second environment:
 
 ```bash
-cd codemender-agent/terraform/gcp
+cd code-mender-demo/terraform/gcp
 terraform workspace new prod  # Name it whatever you like (e.g., prod, testing)
 ```
 

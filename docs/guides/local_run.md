@@ -28,7 +28,7 @@ machine:
 Open your terminal and change directory to the repository folder:
 
 ```bash
-cd /path/to/codemender-agent
+cd /path/to/code-mender-demo
 ```
 
 ### Step 2: Install Python Dependencies (Optional)

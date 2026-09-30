@@ -277,7 +277,7 @@ Using a GitHub App offers major advantages over Personal Access Tokens (PATs):
 1.  **GitHub App name**: Enter a unique descriptive name (e.g. `codemender-bot`
     or `codemender-bot-<org>`).
 2.  **Homepage URL**: Enter your repository URL (e.g.
-    `https://github.com/cloud-ai-fde/codemender-agent`).
+    `https://github.com/avnit/code-mender-demo`).
 3.  **Webhook**:
     *   **Uncheck "Active"** (CodeMender is triggered directly by GitHub Actions
         runner jobs, so no incoming webhook listener or public webhook URL is
@@ -737,7 +737,7 @@ Depending on whether your target repository belongs to an **Organization** or a
 │                                                 │                                                │
 │ Action:                                         │ Action (2 Steps Required):                     │
 │ Use standard remote reusable workflow path:     │ 1. COPY 'codemender_parallel.yml' into target │
-│   uses: org/codemender-agent/.../parallel.yml   │    repo's '.github/workflows/' directory.     │
+│   uses: avnit/code-mender-demo/.../parallel.yml │    repo's '.github/workflows/' directory.     │
 │                                                 │ 2. Call local workflow in 'codemender.yml':    │
 │                                                 │    uses: ./.github/workflows/parallel.yml      │
 └─────────────────────────────────────────────────┴────────────────────────────────────────────────┘
@@ -750,7 +750,7 @@ Depending on whether your target repository belongs to an **Organization** or a
 > <user>/<repo>/...`) between private repositories are strictly prohibited under
 > personal user accounts**.
 >
-> If you attempt to call `uses: your-user/codemender-agent/...` from another
+> If you attempt to call `uses: avnit/code-mender-demo/...` from another
 > private personal repository, GitHub will immediately fail with:
 >
 > ```text
@@ -771,7 +771,7 @@ Depending on whether your target repository belongs to an **Organization** or a
     workflow:
 
     ```yaml
-        uses: your-org/codemender-agent/.github/workflows/codemender_parallel.yml@main
+        uses: avnit/code-mender-demo/.github/workflows/codemender_parallel.yml@main
         with:
           runner_image: 'ghcr.io/your-org/codemender-runner:latest'
     ```
@@ -892,11 +892,11 @@ jobs:
 
     # -------------------------------------------------------------------------
     # Reusable Orchestrator Workflow Call:
-    # Option A (Org Account / Public Repo): uses: your-org/codemender-agent/.github/workflows/codemender_parallel.yml@main
+    # Option A (Org Account / Public Repo): uses: avnit/code-mender-demo/.github/workflows/codemender_parallel.yml@main
     # Option B (Personal Private Repo / Testers): Copy 'codemender_parallel.yml' to .github/workflows/ and call locally:
     # -------------------------------------------------------------------------
     uses: ./.github/workflows/codemender_parallel.yml
-    # uses: your-org/codemender-agent/.github/workflows/codemender_parallel.yml@main
+    # uses: avnit/code-mender-demo/.github/workflows/codemender_parallel.yml@main
 
     with:
       # Universal or Personal Runner Container Image (GHCR):
@@ -1001,7 +1001,7 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'codemender-scan'))
 
-    uses: ilbzzz/codemender-agent/.github/workflows/codemender_parallel.yml@main
+    uses: avnit/code-mender-demo/.github/workflows/codemender_parallel.yml@main
 
     with:
       # =======================================================================
@@ -1108,7 +1108,7 @@ jobs:
       github.event_name == 'schedule' ||
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'codemender-scan'))
-    uses: ilbzzz/codemender-agent/.github/workflows/codemender_parallel.yml@main
+    uses: avnit/code-mender-demo/.github/workflows/codemender_parallel.yml@main
     with:
       scan_target: 'services/backend'
       build_command: 'pytest services/backend/tests'
@@ -1125,7 +1125,7 @@ jobs:
       github.event_name == 'schedule' ||
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'codemender-scan'))
-    uses: ilbzzz/codemender-agent/.github/workflows/codemender_parallel.yml@main
+    uses: avnit/code-mender-demo/.github/workflows/codemender_parallel.yml@main
     with:
       scan_target: 'services/frontend'
       build_command: 'npm test --prefix services/frontend'

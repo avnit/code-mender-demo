@@ -78,8 +78,8 @@ Clone or copy the orchestrator source files to your deployment shell environment
 (e.g. your local workstation or Google Cloud Shell):
 
 ```bash
-git clone https://github.com/your-username/codemender-agent.git
-cd codemender-agent
+git clone https://github.com/avnit/code-mender-demo.git
+cd code-mender-demo
 ```
 
 ### Step 2: CLI Binary Sourcing (Automated via Artifact Registry)
